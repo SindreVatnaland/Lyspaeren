@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from 'react-native';
 
-import MainPage from '../components/SecondPage';
+import MainPage from '../components/MainPage/MainPage';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
