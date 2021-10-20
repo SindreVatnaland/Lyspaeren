@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { FC } from 'react';
 
 
 interface ICardData {
-    CardTitle: String;
+    CardTitle: string;
+    CardDescription?: string;
+    CardRating: string;
 }
 
 
@@ -14,10 +16,15 @@ const CardItem : FC<ICardData> = (props) => {
   return(
   <Card style={styles.submit}>
     <Card.Cover style={styles.image} source={{ uri: 'https://picsum.photos/700' }} />
-    <Card.Content>
-      <Title>{props.CardTitle}</Title>
-      <Paragraph>Card content</Paragraph>
-    </Card.Content>
+    <View style={styles.parent}>
+        <Card.Content style={styles.leftChild}>
+            <Title style={styles.cardTitle}>{props.CardTitle}</Title>
+        </Card.Content>
+        <Card.Content style={styles.rightChild}>
+            <Title style={styles.cardContent}>50kr</Title>
+            <Title style={styles.cardContent}>{props.CardRating}</Title>
+        </Card.Content>
+    </View>
   </Card>
   )
 };
@@ -25,13 +32,13 @@ const CardItem : FC<ICardData> = (props) => {
 
 const styles = StyleSheet.create({
     submit: {
-        marginRight: 5,
-        marginLeft: 5,
-        marginTop: 10,
+        marginRight: 10,
+        marginLeft: 10,
+        marginTop: 20,
         paddingTop: 20,
         paddingBottom: 20,
-        backgroundColor: '#68a0cf',
-        borderRadius: 5,
+        backgroundColor: '#eeffee',
+        borderRadius: 10,
         borderWidth: 1,
         borderColor: '#fff',
         shadowColor: "#000",
@@ -57,8 +64,32 @@ const styles = StyleSheet.create({
       submitText: {
         color: '#fff',
         textAlign: 'center',
-      }
-
+      },
+      parent: {
+        flexDirection: "row",
+        height: 100,
+        padding: 20
+      },
+      leftChild: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        textAlign: "center",
+        flex: 0.7,
+        maxWidth: "70%"
+      },
+      rightChild: {
+        textAlign: "center",
+        flex: 0.3,
+        maxWidth: "30%"
+      },
+      cardContent: {
+          textAlign: "center",
+      },
+      cardTitle: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    }
   });
 
 
