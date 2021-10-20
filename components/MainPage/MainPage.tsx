@@ -1,44 +1,24 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Card } from 'react-native-paper';
 
 import Colors from '../../constants/Colors';
 import { MonoText } from '../StyledText';
 import { Text, View } from '../Themed';
+import CardItem from './CardItem';
 
 export default function MainPage({ path }: { path: string }) {
   return (
     <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
-        </View>
-
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will Joffe update.
-        </Text>
-      </View>
-
-      <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </TouchableOpacity>
-      </View>
+        <CardItem CardTitle="Fiks mobilen min"/>
+        <CardItem CardTitle="Bobil med defekt GPS"/>
+        <CardItem CardTitle="iPhone med ødelagt skjerm"/>
+        <CardItem CardTitle="Brødrister"/>
+        <CardItem CardTitle="Ps4 Overoppheter"/>
+        <CardItem CardTitle="iPhone 5"/>
+        <CardItem CardTitle="Defekt høytaler"/>
+        <CardItem CardTitle="Ødelagt vaskemaskin"/>
     </View>
   );
 }
@@ -49,32 +29,3 @@ function handleHelpPress() {
   );
 }
 
-const styles = StyleSheet.create({
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightContainer: {
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  helpContainer: {
-    marginTop: 15,
-    marginHorizontal: 20,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    textAlign: 'center',
-  },
-});
