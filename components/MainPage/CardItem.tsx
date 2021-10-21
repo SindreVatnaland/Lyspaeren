@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 20,
     paddingBottom: 20,
-    backgroundColor: '#eeffee',
+    backgroundColor: '#e2e2e2',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#e2e2e2',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

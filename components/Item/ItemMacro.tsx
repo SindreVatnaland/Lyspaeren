@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     content: {
         paddingVertical: 5,
-        paddingHorizontal: 8
+        paddingHorizontal: 12
     },
     contentText: {
         fontSize: 20,
@@ -86,7 +86,7 @@ export const ItemMacro: FC<ICardData> = (props) => {
                             ))}
                         </View>
                         <View style={{ paddingLeft: 5 }}>
-                            <View style={[styles.rowFlexView, { paddingBottom: 5 }]}>
+                            <View style={[styles.rowFlexView, { paddingBottom: 12 }]}>
                                 <Icon name="star-rate" color="#ffd107" size={35} />
                                 <Text style={styles.profileText}> 3,8</Text>
                             </View>
