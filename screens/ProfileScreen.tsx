@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from 'react-native';
 
-import MainPage from '../components/MainPage/MainPage';
+import ProfilePage from '../components/ProfilePage/ProfilePage';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
@@ -11,10 +11,10 @@ export default function ProfileScreen({ navigation }: RootTabScreenProps<'Profil
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <View lightColor="#eee" />
-          <MainPage path="/screens/TabOneScreen.tsx" />
+          <ProfilePage path="/screens/TabOneScreen.tsx" navigation={undefined} />
         </View>
-        </ScrollView>
-      </SafeAreaView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -39,5 +39,5 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 42,
   },
-  
+
 });
