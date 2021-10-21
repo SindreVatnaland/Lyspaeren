@@ -61,24 +61,25 @@ const dummyData = () => ({
     price: "900kr"
 });
 
-export const ItemMacro: FC<ICardData> = (props) => {
+export const ItemMacro: FC<any> = ({ route, nav }) => {
     const [dummy, _] = useState(dummyData());
+    const [item,] = useState<ICardData>(route.params);
     return (
         <>
             <View style={{ minHeight: "100%" }}>
                 <ScrollView >
                     <Image
-                        source={{ uri: dummy.uri }}
+                        source={{ uri: item.cardImage }}
                         style={styles.topImage} />
                     <View style={styles.content}>
                         <Text style={Styles.title}>
-                            {dummy.title}
+                            {item.cardTitle}
                         </Text>
                         <Text style={[Styles.title, styles.price]}>
-                            {dummy.price}
+                            {item.cardPrice}
                         </Text>
                         <Text style={[styles.contentText, styles.contentView]}>
-                            {dummy.desc}
+                            {item.cardDescription}
                         </Text>
                         <View style={[styles.categoriesView, styles.contentView]}>
                             {dummy.categories.map((category, i) => (
@@ -88,7 +89,7 @@ export const ItemMacro: FC<ICardData> = (props) => {
                         <View style={{ paddingLeft: 5 }}>
                             <View style={[styles.rowFlexView, { paddingBottom: 12 }]}>
                                 <Icon name="star-rate" color="#ffd107" size={35} />
-                                <Text style={styles.profileText}> 3,8</Text>
+                                <Text style={styles.profileText}>{item.cardRating}</Text>
                             </View>
                             <View style={styles.rowFlexView}>
                                 <Avatar

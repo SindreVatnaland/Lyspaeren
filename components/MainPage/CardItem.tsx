@@ -18,11 +18,11 @@ export interface ICardData {
 const CardItem: FC<ICardData> = (props) => {
   return (
     <Pressable onPress={() => props.navigation.navigate("Item", {
-      CardTitle: props.CardTitle,
-      CardDescription: props.CardDescription,
-      CardRating: props.CardRating,
-      CardPrice: props.CardPrice,
-      CardImage: props.CardImage,
+      cardTitle: props.CardTitle,
+      cardDescription: props.CardDescription,
+      cardRating: props.CardRating,
+      cardPrice: props.CardPrice,
+      cardImage: props.CardImage,
     })}>
       <Card style={styles.submit}>
         <Card.Cover style={styles.image} source={{ uri: props.CardImage || 'https://picsum.photos/700' }} />
