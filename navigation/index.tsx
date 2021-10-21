@@ -94,6 +94,7 @@ function BottomTabNavigator() {
         }}
       />}
       
+
     </BottomTab.Navigator>
   );
 }
