@@ -24,7 +24,7 @@ const CardItem : FC<ICardData> = (props) => {
         </Card.Content>
         <Card.Content style={styles.rightChild}>
             <Title style={styles.cardContent}>{props.CardPrice}</Title>
-            <Title style={styles.cardContent}>{props.CardRating}</Title>
+            <Title style={styles.cardContent}>★{props.CardRating}</Title>
         </Card.Content>
     </View>
   </Card>
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     submit: {
         marginRight: 10,
         marginLeft: 10,
-        marginTop: 20,
-        paddingTop: 20,
+        marginTop: 0,
+        marginBottom: 20,
         paddingBottom: 20,
         backgroundColor: '#eeffee',
         borderRadius: 10,
