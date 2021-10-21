@@ -11,7 +11,7 @@ import CardItem from './CardItem';
 import { RootTabScreenProps } from '../../types';
 import { CompositeNavigationProp } from '@react-navigation/native';
 
-export default function MainPage({ path, navigation }: { path: string, navigation: CompositeNavigationProp<any, any> }) {
+export default function MainPage({ path, navigation }: { path: string, navigation?: any }) {
   return (
     <View>
       {cardData().map((card, index) => (

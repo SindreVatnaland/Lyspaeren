@@ -1,6 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import Slider from '@react-native-community/slider';
 
 import Colors from '../../constants/Colors';
 import { MonoText } from '../StyledText';
@@ -14,30 +15,51 @@ export default function ModalPage({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+          Price range:{"\n"}
+          <Text
+          style={styles.getStartedText}
+          lightColor="rgba(0,0,0,0.8)"
+          darkColor="rgba(255,255,255,0.8)"
+          >2500kr</Text>
         </Text>
 
+
         <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+          
+          <Slider
+            style={{width: 300, height: 40}}
+            value={2500}
+            minimumValue={0}
+            maximumValue={10000}
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#aaaaaa"
+          />
         </View>
 
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will Joffe update.
+          Distance Range (km):{"\n"}
+        </Text>
+        <Text
+          style={styles.getStartedText}
+          lightColor="rgba(0,0,0,0.8)"
+          darkColor="rgba(255,255,255,0.8)">
+          70km
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </TouchableOpacity>
+      <Slider
+            style={{width: 300, height: 40}}
+            minimumValue={0}
+            value={70}
+            maximumValue={100}
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#aaaaaa"
+          />
       </View>
     </View>
   );
