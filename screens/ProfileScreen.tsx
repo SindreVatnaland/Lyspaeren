@@ -5,7 +5,7 @@ import MainPage from '../components/MainPage/MainPage';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
-export default function ProfileScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function ProfileScreen({ navigation }: RootTabScreenProps<'ProfileScreen'>) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
