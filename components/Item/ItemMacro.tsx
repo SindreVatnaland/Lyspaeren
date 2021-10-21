@@ -1,6 +1,6 @@
 import { View } from "../Themed";
 import React, { useState } from "react";
-import { StyleSheet, Image, Text } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Image, Text } from "react-native";
 import { Chip, Icon, Avatar } from 'react-native-elements';
 import Styles from "../../constants/Styles"
 
@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
     profileText: {
         fontWeight: "bold",
         fontSize: 25
+    },
+    chat: {
+        position: "absolute",
+        right: 0,
+        bottom: 0
     }
 })
 
@@ -51,37 +56,44 @@ const dummyData = () => ({
 export const ItemMacro = () => {
     const [dummy, _] = useState(dummyData());
     return (
-        <View>
-            <Image
-                source={{ uri: dummy.uri }}
-                style={styles.topImage} />
-            <View style={styles.content}>
-                <Text style={Styles.title}>
-                    {dummy.title}
-                </Text>
-                <Text style={[styles.contentText, styles.contentView]}>
-                    {dummy.desc}
-                </Text>
-                <View style={[styles.categoriesView, styles.contentView]}>
-                    {dummy.categories.map((category, i) => (
-                        <Chip key={i} title={category} style={styles.category} />
-                    ))}
-                </View>
-                <View style={{ paddingLeft: 5 }}>
-                    <View style={[styles.rowFlexView, { paddingBottom: 5 }]}>
-                        <Icon name="star-rate" color="#ffd107" size={35} />
-                        <Text style={styles.profileText}> 3,8</Text>
+        <>
+            <View style={{ minHeight: "100%" }}>
+                <ScrollView >
+                    <Image
+                        source={{ uri: dummy.uri }}
+                        style={styles.topImage} />
+                    <View style={styles.content}>
+                        <Text style={Styles.title}>
+                            {dummy.title}
+                        </Text>
+                        <Text style={[styles.contentText, styles.contentView]}>
+                            {dummy.desc}
+                        </Text>
+                        <View style={[styles.categoriesView, styles.contentView]}>
+                            {dummy.categories.map((category, i) => (
+                                <Chip key={i} title={category} style={styles.category} />
+                            ))}
+                        </View>
+                        <View style={{ paddingLeft: 5 }}>
+                            <View style={[styles.rowFlexView, { paddingBottom: 5 }]}>
+                                <Icon name="star-rate" color="#ffd107" size={35} />
+                                <Text style={styles.profileText}> 3,8</Text>
+                            </View>
+                            <View style={styles.rowFlexView}>
+                                <Avatar
+                                    rounded
+                                    source={{
+                                        uri: dummy.avatarUri
+                                    }} />
+                                <Text style={styles.profileText}> Jonas Gilje</Text>
+                            </View>
+                        </View>
                     </View>
-                    <View style={styles.rowFlexView}>
-                        <Avatar
-                            rounded
-                            source={{
-                                uri: dummy.avatarUri
-                            }} />
-                        <Text style={styles.profileText}> Jonas Gilje</Text>
-                    </View>
-                </View>
+                </ScrollView>
             </View>
-        </View>
+            <View style={styles.chat}>
+                <Icon name="chat-bubble" raised />
+            </View>
+        </>
     )
 }

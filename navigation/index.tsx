@@ -66,7 +66,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+          title: 'FixMe',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
@@ -92,7 +92,7 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />*/}
-      <BottomTab.Screen name="TabItem" component={ItemMacro} options={{ title: "Item page" }} />
+      <BottomTab.Screen name="TabItem" component={ItemMacro} options={{ title: "FixMe" }} />
     </BottomTab.Navigator>
   );
 }
