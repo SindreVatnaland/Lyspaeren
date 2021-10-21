@@ -14,6 +14,7 @@ import { ItemMacro } from '../components/Item/ItemMacro';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -66,8 +67,8 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'FixMe',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -84,15 +85,16 @@ function BottomTabNavigator() {
           ),
         })}
       />
-      {/*<BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+      {<BottomTab.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
-      />*/}
-      <BottomTab.Screen name="TabItem" component={ItemMacro} options={{ title: "FixMe" }} />
+      />}
+      
+
     </BottomTab.Navigator>
   );
 }
