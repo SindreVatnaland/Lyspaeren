@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
 
@@ -7,7 +7,10 @@ import Colors from '../../constants/Colors';
 import { MonoText } from '../StyledText';
 import { Text, View } from '../Themed';
 
+
 export default function ModalPage({ path }: { path: string }) {
+  const [price, setPrice] = useState(2500);
+  const [km, setKm] = useState(70);
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -20,7 +23,7 @@ export default function ModalPage({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)"
-          >2500kr</Text>
+          >{price+"kr"}</Text>
         </Text>
 
 
@@ -29,11 +32,12 @@ export default function ModalPage({ path }: { path: string }) {
           
           <Slider
             style={{width: 300, height: 40}}
-            value={2500}
+            value={price}
             minimumValue={0}
             maximumValue={10000}
             minimumTrackTintColor="#000000"
             maximumTrackTintColor="#aaaaaa"
+            onValueChange={(value) => setPrice(Math.floor(value))}
           />
         </View>
 
@@ -41,13 +45,13 @@ export default function ModalPage({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Distance Range (km):{"\n"}
+          Distance Range (km):{""}
         </Text>
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          70km
+          {km+"km"}
         </Text>
       </View>
 
@@ -55,10 +59,11 @@ export default function ModalPage({ path }: { path: string }) {
       <Slider
             style={{width: 300, height: 40}}
             minimumValue={0}
-            value={70}
+            value={km}
             maximumValue={100}
             minimumTrackTintColor="#000000"
             maximumTrackTintColor="#aaaaaa"
+            onValueChange={(value) => setKm(Math.floor(value))}
           />
       </View>
     </View>
