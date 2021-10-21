@@ -18,6 +18,8 @@ export default function MainPage({ path }: { path: string }) {
           CardTitle={card.cardTitle}
           CardDescription={card.cardDescription}
           CardRating={card.cardRating}
+          CardPrice={card.cardPrice}
+          CardImage={card.cardImage}
          />
          ))}
     </View>
