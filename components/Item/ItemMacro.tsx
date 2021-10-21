@@ -1,6 +1,7 @@
 import { View } from "../Themed";
 import React, { useState } from "react";
 import { StyleSheet, Image, Text } from "react-native";
+import { Chip, Icon, Avatar } from 'react-native-elements';
 import Styles from "../../constants/Styles"
 
 const styles = StyleSheet.create({
@@ -18,13 +19,33 @@ const styles = StyleSheet.create({
     },
     contentView: {
         paddingVertical: 10
+    },
+    categoriesView: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        flexWrap: "wrap"
+    },
+    category: {
+        flex: 1,
+    },
+    rowFlexView: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    profileText: {
+        fontWeight: "bold",
+        fontSize: 25
     }
 })
 
 const dummyData = () => ({
     uri: "https://picsum.photos/id/0/700/400",
     title: "My PC's keyboard is not working!",
-    desc: "One week ago when I was using microsoft word, the keyboard on my PC suddenly stopped working! I have no idea why or how to fix this. Can somebody please help me!"
+    desc: "One week ago when I was using microsoft word, the keyboard on my PC suddenly stopped working! I have no idea why or how to fix this. Can somebody please help me?",
+    categories: ["PC", "Keyboard", "Electricity", "Microsoft word"],
+    stars: 3.8,
+    name: "Jonas Gilje",
+    avatarUri: 'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg'
 });
 
 export const ItemMacro = () => {
@@ -41,6 +62,25 @@ export const ItemMacro = () => {
                 <Text style={[styles.contentText, styles.contentView]}>
                     {dummy.desc}
                 </Text>
+                <View style={[styles.categoriesView, styles.contentView]}>
+                    {dummy.categories.map((category, i) => (
+                        <Chip key={i} title={category} style={styles.category} />
+                    ))}
+                </View>
+                <View style={{ paddingLeft: 5 }}>
+                    <View style={[styles.rowFlexView, { paddingBottom: 5 }]}>
+                        <Icon name="star-rate" color="#ffd107" size={35} />
+                        <Text style={styles.profileText}> 3,8</Text>
+                    </View>
+                    <View style={styles.rowFlexView}>
+                        <Avatar
+                            rounded
+                            source={{
+                                uri: dummy.avatarUri
+                            }} />
+                        <Text style={styles.profileText}> Jonas Gilje</Text>
+                    </View>
+                </View>
             </View>
         </View>
     )
