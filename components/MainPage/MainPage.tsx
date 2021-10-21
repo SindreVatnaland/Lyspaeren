@@ -8,20 +8,23 @@ import { cardData } from '../cardData';
 import { MonoText } from '../StyledText';
 import { Text, View } from '../Themed';
 import CardItem from './CardItem';
+import { RootTabScreenProps } from '../../types';
+import { CompositeNavigationProp } from '@react-navigation/native';
 
-export default function MainPage({ path }: { path: string }) {
+export default function MainPage({ path, navigation }: { path: string, navigation: CompositeNavigationProp<any, any> }) {
   return (
     <View>
-        {cardData().map(( card, index ) => (
+      {cardData().map((card, index) => (
         <CardItem
-          key = {index}
+          key={index}
           CardTitle={card.cardTitle}
           CardDescription={card.cardDescription}
           CardRating={card.cardRating}
           CardPrice={card.cardPrice}
           CardImage={card.cardImage}
-         />
-         ))}
+          navigation={navigation}
+        />
+      ))}
     </View>
   );
 }

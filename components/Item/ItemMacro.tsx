@@ -1,8 +1,9 @@
 import { View } from "../Themed";
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Image, Text } from "react-native";
 import { Chip, Icon, Avatar } from 'react-native-elements';
 import Styles from "../../constants/Styles"
+import { ICardData } from "../cardData"
 
 const styles = StyleSheet.create({
     topImage: {
@@ -15,10 +16,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8
     },
     contentText: {
-        fontSize: 20
+        fontSize: 20,
     },
     contentView: {
-        paddingVertical: 10
+        paddingBottom: 20
     },
     categoriesView: {
         flexDirection: "row",
@@ -40,6 +41,12 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 0,
         bottom: 0
+    },
+    price: {
+        alignSelf: "flex-end",
+        position: "relative",
+        top: -15,
+        paddingRight: 5
     }
 })
 
@@ -50,10 +57,11 @@ const dummyData = () => ({
     categories: ["PC", "Keyboard", "Electricity", "Microsoft word"],
     stars: 3.8,
     name: "Jonas Gilje",
-    avatarUri: 'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg'
+    avatarUri: 'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg',
+    price: "900kr"
 });
 
-export const ItemMacro = () => {
+export const ItemMacro: FC<ICardData> = (props) => {
     const [dummy, _] = useState(dummyData());
     return (
         <>
@@ -65,6 +73,9 @@ export const ItemMacro = () => {
                     <View style={styles.content}>
                         <Text style={Styles.title}>
                             {dummy.title}
+                        </Text>
+                        <Text style={[Styles.title, styles.price]}>
+                            {dummy.price}
                         </Text>
                         <Text style={[styles.contentText, styles.contentView]}>
                             {dummy.desc}

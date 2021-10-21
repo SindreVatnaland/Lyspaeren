@@ -11,10 +11,10 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <View lightColor="#eee" />
-          <MainPage path="/screens/TabOneScreen.tsx" />
+          <MainPage path="/screens/TabOneScreen.tsx" navigation={navigation} />
         </View>
-        </ScrollView>
-      </SafeAreaView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
   },
   scrollView: {
     backgroundColor: 'white',
+    paddingTop: 10
   },
   text: {
     fontSize: 42,
   },
-  
+
 });
