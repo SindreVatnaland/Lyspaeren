@@ -8,6 +8,8 @@ interface ICardData {
     CardTitle: string;
     CardDescription?: string;
     CardRating: string;
+    CardPrice: string;
+    CardImage?: string;
 }
 
 
@@ -15,13 +17,13 @@ interface ICardData {
 const CardItem : FC<ICardData> = (props) => {
   return(
   <Card style={styles.submit}>
-    <Card.Cover style={styles.image} source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Cover style={styles.image} source={{ uri: props.CardImage || 'https://picsum.photos/700' }} />
     <View style={styles.parent}>
         <Card.Content style={styles.leftChild}>
             <Title style={styles.cardTitle}>{props.CardTitle}</Title>
         </Card.Content>
         <Card.Content style={styles.rightChild}>
-            <Title style={styles.cardContent}>50kr</Title>
+            <Title style={styles.cardContent}>{props.CardPrice}</Title>
             <Title style={styles.cardContent}>{props.CardRating}</Title>
         </Card.Content>
     </View>
@@ -71,8 +73,7 @@ const styles = StyleSheet.create({
         padding: 20
       },
       leftChild: {
-        marginTop: "auto",
-        marginBottom: "auto",
+        marginTop: 5,
         justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
