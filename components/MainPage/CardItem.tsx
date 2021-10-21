@@ -71,6 +71,9 @@ const styles = StyleSheet.create({
         padding: 20
       },
       leftChild: {
+        marginTop: "auto",
+        marginBottom: "auto",
+        justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         textAlign: "center",
